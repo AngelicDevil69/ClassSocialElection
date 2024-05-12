@@ -225,7 +225,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form id="registrationForm">
+            <form>
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -237,7 +237,7 @@
                 <input type="text" placeholder="Name">
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
-                <button type="submit">Sign Up</button>
+                <a href="https://angelicdevil69.github.io/ClassSocialElectionMain/">Sign Up</a>
             </form>
         </div>
         <div class="form-container sign-in">
@@ -252,8 +252,7 @@
                 <span>or use your email password</span>
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
-                <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
+                <a href="https://angelicdevil69.github.io/ClassSocialElectionMain/">Sign In</a>
             </form>
         </div>
         <div class="toggle-container">
@@ -275,7 +274,6 @@
         const container = document.getElementById('container');
         const registerBtn = document.getElementById('register');
         const loginBtn = document.getElementById('login');
-        const registrationForm = document.getElementById('registrationForm');
 
         registerBtn.addEventListener('click', () => {
             container.classList.add("active");
@@ -283,16 +281,6 @@
 
         loginBtn.addEventListener('click', () => {
             container.classList.remove("active");
-        });
-
-        registrationForm.addEventListener('submit', (event) => {
-            event.preventDefault(); // Prevent form submission
-
-            // Simulate registration process (replace with actual logic)
-            setTimeout(() => {
-                // Redirect after registration
-                window.location.href = 'https://angelicdevil69.github.io/ClassSocialElectionMain/'; // Replace with your desired URL
-            }, 2000); // Delay for demonstration purposes
         });
     </script>
 </body>
