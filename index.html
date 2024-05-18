@@ -220,13 +220,6 @@
         .container.active .toggle-right{
             transform: translateX(200%);
         }
-
-        /* Validation Error styles */
-        .error-message {
-            color: red;
-            font-size: 12px;
-            margin-top: 5px;
-        }
     </style>
 </head>
 <body>
@@ -240,13 +233,13 @@
                     <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
-                <span>or use your email for registration</
-                                    <input type="text" id="signupName" placeholder="Name">
+                <span>or use your email for registration</span>
+                <input type="text" id="signupName" placeholder="Name">
                 <input type="email" id="signupEmail" placeholder="Email">
                 <span class="error-message" id="signupEmailError"></span>
                 <input type="password" id="signupPassword" placeholder="Password">
                 <span class="error-message" id="signupPasswordError"></span>
-                <a href="https://angelicdevil69.github.io/ClassSocialElectionMain/" onclick="validateSignUp()">Sign Up</a>
+                <button type="button" onclick="validateSignUp()">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
@@ -263,7 +256,7 @@
                 <span class="error-message" id="signinEmailError"></span>
                 <input type="password" id="signinPassword" placeholder="Password">
                 <span class="error-message" id="signinPasswordError"></span>
-                <a href="https://angelicdevil69.github.io/ClassSocialElectionMain/" onclick="validateSignIn()">Sign In</a>
+                <button type="button" onclick="validateSignIn()">Sign In</button>
             </form>
         </div>
         <div class="toggle-container">
@@ -283,6 +276,18 @@
     </div>
 
     <script>
+        const container = document.getElementById('container');
+        const registerBtn = document.getElementById('register');
+        const loginBtn = document.getElementById('login');
+
+        registerBtn.addEventListener('click', () => {
+            container.classList.add('active');
+        });
+
+        loginBtn.addEventListener('click', () => {
+            container.classList.remove('active');
+        });
+
         function validateSignUp() {
             const name = document.getElementById('signupName').value;
             const email = document.getElementById('signupEmail').value;
@@ -290,28 +295,26 @@
             const emailError = document.getElementById('signupEmailError');
             const passwordError = document.getElementById('signupPasswordError');
 
+            emailError.textContent = '';
+            passwordError.textContent = '';
+
             if (!name) {
-                emailError.textContent = '';
-                passwordError.textContent = '';
                 alert('Please enter your name.');
                 return false;
             }
 
             if (!email) {
-                passwordError.textContent = '';
                 emailError.textContent = 'Please enter your email.';
                 return false;
             }
 
             if (!password) {
-                emailError.textContent = '';
                 passwordError.textContent = 'Please enter your password.';
                 return false;
             }
 
-            // Continue with sign-up logic if all fields are filled
-            // Example: Submitting the form to the server
-            document.getElementById('signupForm').submit();
+            // Proceed to redirect if validation passes
+            window.location.href = "https://angelicdevil69.github.io/ClassSocialElectionMain/";
         }
 
         function validateSignIn() {
@@ -320,21 +323,21 @@
             const emailError = document.getElementById('signinEmailError');
             const passwordError = document.getElementById('signinPasswordError');
 
+            emailError.textContent = '';
+            passwordError.textContent = '';
+
             if (!email) {
-                passwordError.textContent = '';
                 emailError.textContent = 'Please enter your email.';
                 return false;
             }
 
             if (!password) {
-                emailError.textContent = '';
                 passwordError.textContent = 'Please enter your password.';
                 return false;
             }
 
-            // Continue with sign-in logic if all fields are filled
-            // Example: Submitting the form to the server
-            document.getElementById('signinForm').submit();
+            // Proceed to redirect if validation passes
+            window.location.href = "https://angelicdevil69.github.io/ClassSocialElectionMain/";
         }
     </script>
 </body>
